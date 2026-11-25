@@ -8,10 +8,15 @@ import { mkdirSync, writeFileSync } from "node:fs";
 //   was spent blaming a school that had already said yes.
 // Plain TypeScript with no type annotations, so it runs as-is on Node 22.
 
-const lines = [
-  "Don't throw away the thin envelope from RISD you open over the kitchen sink in April before you read past the first line.",
-  "You told everyone you were rejected, but the scholarship expired while you pretended not to care, and you spent a decade blaming a school that said yes.",
-];
+// The two lines, kept as named constants so each one can be read, quoted,
+// or checked on its own: the warning names the single moment to undo, and
+// the second line names the cost of not undoing it.
+const WARNING_LINE =
+  "Don't throw away the thin envelope from RISD you open over the kitchen sink in April before you read past the first line.";
+const WHY_IT_MATTERED =
+  "You told everyone you were rejected, but the scholarship expired while you pretended not to care, and you spent a decade blaming a school that said yes.";
+
+const lines = [WARNING_LINE, WHY_IT_MATTERED];
 
 mkdirSync("/output", { recursive: true });
 writeFileSync("/output/entry.txt", lines.join("\n") + "\n", "utf8");
